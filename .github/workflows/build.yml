@@ -1,16 +1,7 @@
 name: Publish to container registry
 
 on:
-  push:
-    branches:
-      - v*
-  release:
-    types: [ "published" ]
-  # The "Sync branch" workflow doesn't trigger the push event, therefore we need a separate trigger for that
-  workflow_run:
-    workflows: [Sync branch]
-    types:
-      - completed
+  workflow_dispatch:
 
 env:
   # Use docker.io for Docker Hub if empty
